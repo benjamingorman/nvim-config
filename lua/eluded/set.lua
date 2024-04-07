@@ -1,5 +1,5 @@
 -- Custom mapping <leader> (see `:h mapleader` for more info)
-vim.g.mapleader = '`'
+vim.g.mapleader = ' '
 
 vim.opt.nu = true
 vim.o.relativenumber = true
@@ -13,7 +13,13 @@ vim.o.expandtab = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
+if vim.fn.has('win32') then
+  -- Windows
+  vim.opt.undodir = os.getenv("userprofile") .. "/AppData/Local/nvim-data/undodir"
+else
+  -- MacOS
+  vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
+end
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
