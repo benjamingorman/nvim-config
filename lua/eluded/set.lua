@@ -13,7 +13,7 @@ vim.o.expandtab = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-if vim.fn.has('win32') then
+if vim.fn.has('win32') == 1 then
   -- Windows
   vim.opt.undodir = os.getenv("userprofile") .. "/AppData/Local/nvim-data/undodir"
 else
@@ -35,3 +35,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 vim.opt.signcolumn = "no"
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true

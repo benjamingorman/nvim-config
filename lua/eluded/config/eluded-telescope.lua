@@ -7,6 +7,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 --vim.keymap.set('n', '<leader>fe', ":Telescope file_browser<CR>")
 vim.keymap.set("n", "<leader>fe", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 vim.keymap.set("n", "<leader>fr", ":Telescope frecency workspace=CWD<CR>")
+vim.keymap.set("n", "<leader>fs", ":Telescope luasnip<CR>")
 
 -- require 'telescope'.load_extension('project')
 require('telescope').setup {
@@ -36,3 +37,4 @@ require('telescope').setup {
     }
   }
 }
+-- require('telescope').load_extension('luasnip')

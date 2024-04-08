@@ -7,6 +7,7 @@ lsp_zero.on_attach(function(client, bufnr)
   -- to learn the available actions
   -- https://lsp-zero.netlify.app/v3.x/language-server-configuration.html
   lsp_zero.default_keymaps({ buffer = bufnr })
+  vim.api.nvim_set_keymap('n', 'g.', '<cmd>lua vim.lsp.buf.code_action()<CR>', {})
 
   -- Auto format on save
   if client.supports_method("textDocument/formatting") then

@@ -166,6 +166,14 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    "benfowler/telescope-luasnip.nvim",
+    requires = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("telescope").load_extension "luasnip"
+    end,
+  }
+
   -- Neotest for running tests
   -- https://github.com/nvim-neotest/neotest
   use {
@@ -181,6 +189,18 @@ return require('packer').startup(function(use)
       require("eluded.config.neotest")
     end
   }
+
+  -- Markdown preview
+  -- https://github.com/iamcco/markdown-preview.nvim
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = {
+        "markdown" }
+    end,
+    ft = { "markdown" },
+  })
 
   if packer_bootstrap then
     require('packer').sync()

@@ -4,6 +4,7 @@ require('eluded.binds')
 require('eluded.config.lsp')
 
 vim.cmd("colorscheme kanagawa-wave")
+-- vim.cmd("colorscheme kanagawa-lotus")
 
 -- local timer = vim.loop.new_timer()
 -- timer:start(100, 0, function()
