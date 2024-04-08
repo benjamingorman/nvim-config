@@ -1,6 +1,6 @@
 local lsp_zero = require('lsp-zero')
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
@@ -24,7 +24,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 'tsserver', 'rust_analyzer', 'lua_ls' },
+  ensure_installed = { 'tsserver', 'rust_analyzer', 'lua_ls', 'pyright' },
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
@@ -33,7 +33,6 @@ require('mason-lspconfig').setup({
     end,
   }
 })
--- require("lspconfig").lua_ls.setup {}
 
 
 -- this is the function that loads the extra snippets to luasnip
