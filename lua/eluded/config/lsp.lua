@@ -10,16 +10,16 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.api.nvim_set_keymap('n', 'g.', '<cmd>lua vim.lsp.buf.code_action()<CR>', {})
 
   -- Auto format on save
-  if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format()
-      end,
-    })
-  end
+  -- if client.supports_method("textDocument/formatting") then
+  --   vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+  --   vim.api.nvim_create_autocmd("BufWritePre", {
+  --     group = augroup,
+  --     buffer = bufnr,
+  --     callback = function()
+  --       vim.lsp.buf.format()
+  --     end,
+  --   })
+  -- end
 end)
 
 require('mason').setup({})

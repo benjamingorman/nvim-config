@@ -211,6 +211,13 @@ return require('packer').startup(function(use)
     end
   }
 
+  use({
+    "stevearc/conform.nvim",
+    config = function()
+      require("eluded.config.conform")
+    end,
+  })
+
   if packer_bootstrap then
     require('packer').sync()
   end
