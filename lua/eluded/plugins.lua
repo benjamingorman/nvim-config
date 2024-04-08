@@ -80,13 +80,35 @@ return require('packer').startup(function(use)
   -- https://github.com/nvim-lua/plenary.nvim
   use 'nvim-lua/plenary.nvim'
 
-  -- Copilot for better code completion
-  -- https://github.com/github/copilot.vim
-  use 'github/copilot.vim'
+  -- Copilot code completion
+  -- https://github.com/zbirenbaum/copilot.lua
+  use {
+    "zbirenbaum/copilot.lua",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end
+  }
+
+  -- Make copilot a nvim-cmp source
+  -- https://github.com/zbirenbaum/copilot-cmp
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  }
 
   -- Easily comment out code
   -- https://github.com/tpope/vim-commentary
   use 'tpope/vim-commentary'
+
+  -- Surround text with quotes, brackets, etc.
+  -- https://github.com/tpope/tim-surround
+  use 'tpope/vim-surround'
 
   -- LSP Setup
   -- https://github.com/VonHeikemen/lsp-zero.nvim
@@ -112,14 +134,18 @@ return require('packer').startup(function(use)
 
   -- nvim-cmp for autocompletion
   -- https://github.com/hrsh7th/nvim-cmp
-  use "hrsh7th/nvim-cmp"
+  use {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require("eluded.config.cmp")
+    end
+  }
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
   use "saadparwaiz1/cmp_luasnip"
   use "hrsh7th/cmp-nvim-lua"
   use "rafamadriz/friendly-snippets"
-
 
   -- Indent lines
   -- https://github.com/lukas-reineke/indent-blankline.nvim
