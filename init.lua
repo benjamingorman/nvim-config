@@ -1,6 +1,7 @@
 require('eluded.plugins')
 require('eluded.set')
 require('eluded.binds')
+require('eluded.cmd')
 require('eluded.config.lsp')
 
 vim.cmd("colorscheme kanagawa-wave")
