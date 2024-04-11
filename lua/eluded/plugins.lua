@@ -237,12 +237,19 @@ return require('packer').startup(function(use)
     end
   }
 
-  use({
+  use {
     "stevearc/conform.nvim",
     config = function()
       require("eluded.config.conform")
     end,
-  })
+  }
+
+  use {
+    "nvim-telescope/telescope-project.nvim",
+    -- config = function()
+    --   require 'telescope'.load_extension('project')
+    -- end
+  }
 
   if packer_bootstrap then
     require('packer').sync()
