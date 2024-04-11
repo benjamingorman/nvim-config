@@ -19,4 +19,8 @@ function M.edit_zshrc()
   vim.cmd(string.format("edit %s", "~/.zshrc"))
 end
 
+function M.edit_tmux()
+  vim.cmd(string.format("edit %s", "~/.tmux.conf"))
+end
+
 return M
