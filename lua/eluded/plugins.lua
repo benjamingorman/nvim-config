@@ -251,6 +251,10 @@ return require('packer').startup(function(use)
     -- end
   }
 
+  -- Buffer history for better navigation
+  -- https://github.com/dhruvasagar/vim-buffer-history
+  use "dhruvasagar/vim-buffer-history"
+
   if packer_bootstrap then
     require('packer').sync()
   end

@@ -3,8 +3,12 @@ keymap.set("n", "<leader>w", ":w<CR>")
 keymap.set("n", "<leader>q", ":q<CR>")
 
 -- system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Format current buffer
-vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+
+-- Mouse side buttons back/forward
+keymap.set("n", "-", ":BufferHistoryBack<CR>")
+keymap.set("n", "=", ":BufferHistoryForward<CR>")
