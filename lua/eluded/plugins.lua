@@ -122,6 +122,7 @@ return require('packer').startup(function(use)
   -- LSP configurations for mason
   use 'williamboman/mason-lspconfig.nvim'
   use "neovim/nvim-lspconfig"
+  use 'lspcontainers/lspcontainers.nvim'
 
   -- Snippets
   -- https://github.com/L3MON4D3/LuaSnip

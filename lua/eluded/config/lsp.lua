@@ -34,6 +34,29 @@ require('mason-lspconfig').setup({
   }
 })
 
+-- local lspconfig = require('lspconfig')
+-- local lspcontainers = require('lspcontainers')
+
+-- lspconfig.pyright.setup {
+--   cmd = lspcontainers.command('pyright', {
+--     image = "lspcontainers/pyright-langserver:1.1.137",
+--   }),
+--   root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd()),
+--   -- cmd = function(runtime, volume, image)
+--   --   return {
+--   --     runtime,
+--   --     "container",
+--   --     "run",
+--   --     "--interactive",
+--   --     "--rm",
+--   --     "--volume",
+--   --     volume,
+--   --     image
+--   --   }
+--   -- end,
+--   -- }),
+-- }
+
 
 -- this is the function that loads the extra snippets to luasnip
 -- from rafamadriz/friendly-snippets

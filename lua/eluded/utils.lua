@@ -23,4 +23,8 @@ function M.edit_tmux()
   vim.cmd(string.format("edit %s", "~/.tmux.conf"))
 end
 
+function M.edit_todo()
+  vim.cmd(string.format("sp %s", "TODO.md"))
+end
+
 return M
