@@ -4,4 +4,5 @@ vim.cmd [[
   command! Eplug lua require('eluded.utils').edit_plugins()
   command! Ezsh lua require('eluded.utils').edit_zshrc()
   command! Etmux lua require('eluded.utils').edit_tmux()
+  command! Essh lua require('eluded.utils').edit_ssh()
 ]]
