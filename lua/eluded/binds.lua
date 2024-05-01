@@ -12,8 +12,15 @@ keymap.set("n", "<leader>Y", [["+Y]])
 keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 
 -- Mouse side buttons back/forward
+keymap.set("n", "_", ":b#<CR>")
 keymap.set("n", "-", ":BufferHistoryBack<CR>")
 keymap.set("n", "=", ":BufferHistoryForward<CR>")
 
 -- Edit TODO.md
 keymap.set("n", "<leader>T", utils.edit_todo)
+
+-- Open Neogit
+keymap.set("n", "<leader>g", ":Neogit<CR>")
+
+-- Open icon picker
+keymap.set("i", "<M-i>", "<cmd>IconPickerInsert emoji<cr>")

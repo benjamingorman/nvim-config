@@ -63,6 +63,7 @@ return require('packer').startup(function(use)
   use {
     'rcarriga/nvim-notify',
     config = function()
+      require("notify").setup({ top_down = false })
       vim.notify = require("notify")
     end
   }
@@ -86,7 +87,17 @@ return require('packer').startup(function(use)
     "zbirenbaum/copilot.lua",
     config = function()
       require("copilot").setup({
-        suggestion = { enabled = false },
+        suggestion = {
+          enabled = true,
+          auto_trigger = false,
+          keymap = {
+            accept = "<M-l>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+          }
+        },
         panel = { enabled = false },
       })
     end
@@ -94,13 +105,13 @@ return require('packer').startup(function(use)
 
   -- Make copilot a nvim-cmp source
   -- https://github.com/zbirenbaum/copilot-cmp
-  use {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  }
+  -- use {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- }
 
   -- Easily comment out code
   -- https://github.com/tpope/vim-commentary
@@ -255,6 +266,29 @@ return require('packer').startup(function(use)
   -- Buffer history for better navigation
   -- https://github.com/dhruvasagar/vim-buffer-history
   use "dhruvasagar/vim-buffer-history"
+
+  -- Git integration
+  -- https://github.com/NeogitOrg/neogit
+  use {
+    "NeogitOrg/neogit",
+    requires = {
+      "nvim-lua/plenary.nvim",  -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+    },
+    config = function()
+      require('neogit').setup()
+    end
+  }
+
+  -- Icon picker
+  -- https://github.com/ziontee113/icon-picker.nvim
+  use "stevearc/dressing.nvim"
+  use({
+    "ziontee113/icon-picker.nvim",
+    config = function()
+      require("eluded.config.icon-picker")
+    end,
+  })
 
   if packer_bootstrap then
     require('packer').sync()

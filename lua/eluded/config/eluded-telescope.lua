@@ -14,6 +14,8 @@ vim.keymap.set("n", "<leader>fp", ":lua require'telescope'.extensions.project.pr
 local project_actions = require("telescope._extensions.project.actions")
 require('telescope').setup {
   defaults = {
+    path_display = { "tail" },
+    dynamic_preview_title = true,
     mappings = {
       n = {
         ["s"] = "select_vertical",

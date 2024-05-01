@@ -13,6 +13,7 @@ vim.o.expandtab = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
+vim.opt.writebackup = false
 if vim.fn.has('win32') == 1 then
   -- Windows
   vim.opt.undodir = os.getenv("userprofile") .. "/AppData/Local/nvim-data/undodir"

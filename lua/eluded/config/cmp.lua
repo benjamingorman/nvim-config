@@ -13,12 +13,16 @@ end
 cmp.setup({
   sources = {
     -- Copilot Source
-    { name = "copilot" },
     { name = 'path' },
-    { name = 'nvim_lsp', keyword_length = 4 },
+    { name = 'luasnip' },
+    { name = 'nvim_lsp' },
     { name = 'nvim_lua' },
-    { name = 'luasnip',  keyword_length = 2 },
-    { name = 'buffer',   keyword_length = 3 },
+    -- { name = "copilot" },
+    { name = 'buffer' },
+  },
+
+  completion = {
+    completeopt = 'menu,menuone,noinsert'
   },
   formatting = lsp_zero.cmp_format({ details = false }),
   mapping = cmp.mapping.preset.insert({
@@ -30,13 +34,13 @@ cmp.setup({
     -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#super-tab-like-mapping
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        if luasnip.expandable() then
-          luasnip.expand()
-        else
-          cmp.confirm({
-            select = true,
-          })
-        end
+        cmp.confirm({
+          select = true,
+        })
+        -- if luasnip.expandable() then
+        --   luasnip.expand()
+        -- else
+        -- end
       else
         fallback()
       end

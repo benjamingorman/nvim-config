@@ -1,30 +1,20 @@
 local lsp_zero = require('lsp-zero')
 
--- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
   -- https://lsp-zero.netlify.app/v3.x/language-server-configuration.html
   lsp_zero.default_keymaps({ buffer = bufnr })
   vim.api.nvim_set_keymap('n', 'g.', '<cmd>lua vim.lsp.buf.code_action()<CR>', {})
-
-  -- Auto format on save
-  -- if client.supports_method("textDocument/formatting") then
-  --   vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-  --   vim.api.nvim_create_autocmd("BufWritePre", {
-  --     group = augroup,
-  --     buffer = bufnr,
-  --     callback = function()
-  --       vim.lsp.buf.format()
-  --     end,
-  --   })
-  -- end
+  vim.api.nvim_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<CR>', {})
+  vim.api.nvim_set_keymap('n', 'gF', '<cmd>lua vim.lsp.buf.format()<CR>', {})
+  vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
 end)
 
+-- https://github.com/williamboman/mason-lspconfig.nvim
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { 'tsserver', 'rust_analyzer', 'lua_ls', 'pyright' },
+  ensure_installed = { 'tsserver', 'rust_analyzer', 'lua_ls', 'pyright', 'html', "gopls", "zls" },
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
@@ -33,30 +23,6 @@ require('mason-lspconfig').setup({
     end,
   }
 })
-
--- local lspconfig = require('lspconfig')
--- local lspcontainers = require('lspcontainers')
-
--- lspconfig.pyright.setup {
---   cmd = lspcontainers.command('pyright', {
---     image = "lspcontainers/pyright-langserver:1.1.137",
---   }),
---   root_dir = require 'lspconfig/util'.root_pattern(".git", vim.fn.getcwd()),
---   -- cmd = function(runtime, volume, image)
---   --   return {
---   --     runtime,
---   --     "container",
---   --     "run",
---   --     "--interactive",
---   --     "--rm",
---   --     "--volume",
---   --     volume,
---   --     image
---   --   }
---   -- end,
---   -- }),
--- }
-
 
 -- this is the function that loads the extra snippets to luasnip
 -- from rafamadriz/friendly-snippets
