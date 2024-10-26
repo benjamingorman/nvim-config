@@ -9,6 +9,7 @@ require("conform").setup({
     javascript = js_formatter,
     typescript = js_formatter,
     typescriptreact = js_formatter,
+    terraform = { "tflint" },
     scss = { "prettier" },
   },
   format_on_save = {

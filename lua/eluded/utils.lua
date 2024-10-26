@@ -31,4 +31,8 @@ function M.edit_todo()
   vim.cmd(string.format("sp %s", "TODO.md"))
 end
 
+function M.edit_readme()
+  vim.cmd(string.format("sp %s", "README.md"))
+end
+
 return M

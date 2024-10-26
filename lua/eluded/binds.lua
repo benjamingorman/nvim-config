@@ -18,9 +18,13 @@ keymap.set("n", "=", ":BufferHistoryForward<CR>")
 
 -- Edit TODO.md
 keymap.set("n", "<leader>T", utils.edit_todo)
+keymap.set("n", "<leader>R", utils.edit_readme)
 
 -- Open Neogit
 keymap.set("n", "<leader>g", ":Neogit<CR>")
 
 -- Open icon picker
 keymap.set("i", "<M-i>", "<cmd>IconPickerInsert emoji<cr>")
+
+-- AI
+keymap.set("n", "<leader>ai", "<cmd>AvanteAsk<cr>")
